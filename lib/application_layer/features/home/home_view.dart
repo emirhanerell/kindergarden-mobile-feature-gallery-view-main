@@ -5,6 +5,7 @@ import 'package:kindergarden_mobile/application_layer/features/parents/announcem
 import 'package:kindergarden_mobile/application_layer/features/parents/documents/documents_view.dart';
 import 'package:kindergarden_mobile/application_layer/features/parents/homework/homework_view.dart';
 import 'package:kindergarden_mobile/application_layer/features/parents/payments/payments_view.dart';
+import 'package:kindergarden_mobile/application_layer/features/parents/profile/profile_view.dart';
 import 'package:kindergarden_mobile/service_layer/extensions/context_extention.dart';
 import 'package:kindergarden_mobile/tools/enums/icon_path_enums.dart';
 
@@ -126,7 +127,7 @@ class _HomeViewState extends State<HomeView> {
           Row(
             children: [
               IconButton(
-                onPressed: () {},
+                onPressed: () => context.navigateTo(const ProfileView()),
                 icon: const Icon(
                   Icons.settings,
                   color: Colors.grey,
@@ -145,12 +146,15 @@ class _HomeViewState extends State<HomeView> {
                   ),
                 ),
                 child: ClipOval(
-                  child: Container(
-                    color: Colors.grey[200],
-                    child: const Icon(
-                      Icons.person,
-                      color: Colors.grey,
-                      size: 30,
+                  child: GestureDetector(
+                    onTap: () => context.navigateTo(const ProfileView()),
+                    child: Container(
+                      color: Colors.grey[200],
+                      child: const Icon(
+                        Icons.person,
+                        color: Colors.grey,
+                        size: 30,
+                      ),
                     ),
                   ),
                 ),
